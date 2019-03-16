@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Chirm{% endblock %}
+
+{% block body %}
+    <h1>Chirm</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ chirm.id }}</td>
+            </tr>
+            <tr>
+                <th>Msg</th>
+                <td>{{ chirm.msg }}</td>
+            </tr>
+            <tr>
+                <th>Likes</th>
+                <td>{{ chirm.likes }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('chirm_index') }}">back to list</a>
+
+    <a href="{{ path('chirm_edit', {'id': chirm.id}) }}">edit</a>
+
+    {{ include('chirm/_delete_form.html.twig') }}
+{% endblock %}

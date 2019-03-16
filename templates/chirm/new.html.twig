@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Chirm{% endblock %}
+
+{% block body %}
+    <h1>Create new Chirm</h1>
+
+    {{ include('chirm/_form.html.twig') }}
+
+    <a href="{{ path('chirm_index') }}">back to list</a>
+{% endblock %}

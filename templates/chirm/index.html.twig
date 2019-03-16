@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Chirm index{% endblock %}
+
+{% block body %}
+    <h1>Chirm index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Msg</th>
+                <th>Likes</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for chirm in chirms %}
+            <tr>
+                <td>{{ chirm.id }}</td>
+                <td>{{ chirm.msg }}</td>
+                <td>{{ chirm.likes }}</td>
+                <td>
+                    <a href="{{ path('chirm_show', {'id': chirm.id}) }}">show</a>
+                    <a href="{{ path('chirm_edit', {'id': chirm.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('chirm_new') }}">Create new</a>
+{% endblock %}
